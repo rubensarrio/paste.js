@@ -99,13 +99,11 @@ https://github.com/layerssss/paste.js
           return $(nonInputable).addClass('pastable-focus');
         };
       })(this));
-      paste._container.on('blur', (function(_this) {
+      return paste._container.on('blur', (function(_this) {
         return function() {
           return $(nonInputable).removeClass('pastable-focus');
         };
       })(this));
-      paste._container.focus();
-      return paste;
     };
 
     Paste.mountTextarea = function(textarea) {
