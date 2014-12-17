@@ -94,21 +94,18 @@ https://github.com/layerssss/paste.js
     Paste.mountNonInputable = function(nonInputable) {
       var paste;
       paste = new Paste(createHiddenEditable().appendTo(nonInputable), nonInputable);
-      $(nonInputable).on('click', (function(_this) {
-        return function() {
-          return paste._container.focus();
-        };
-      })(this));
       paste._container.on('focus', (function(_this) {
         return function() {
           return $(nonInputable).addClass('pastable-focus');
         };
       })(this));
-      return paste._container.on('blur', (function(_this) {
+      paste._container.on('blur', (function(_this) {
         return function() {
           return $(nonInputable).removeClass('pastable-focus');
         };
       })(this));
+      paste._container.focus();
+      return paste;
     };
 
     Paste.mountTextarea = function(textarea) {
